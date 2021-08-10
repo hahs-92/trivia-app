@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//hooks
+import { useFetch } from "./hooks/useFetch";
+//components
+import Card from './components/Card/Card'
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const { loading,error, data } = useFetch()
+  const [ questionNumber, setQuestionNUmber] = useState(0)
+  console.log(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      { error && <h1>Something went wrong¡¡</h1>}
+      { loading && <h1>Loading..</h1>}
+      { data.length && <Card data={data} questionNumber={questionNumber} setQuestionNumber={setQuestionNUmber}/> }
+    </section> 
   );
 }
 
