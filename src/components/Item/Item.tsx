@@ -1,32 +1,44 @@
-import React from "react"
+import React, { useState } from "react"
+//styles
+import { ItemWrapper } from './ItemStyles'
 
 interface Props  {
     answer: string,
     index: number,
     userAnswer: string
     setUserAnswer: React.Dispatch<React.SetStateAction<string>>,
+    correct_answer: string
 }
 
 enum letterOptions {'A','B','C','D'}
 
-const Item: React.FC<Props> = ({answer, index,userAnswer, setUserAnswer }) => {
+const Item: React.FC<Props> = ({answer, index,userAnswer, setUserAnswer, correct_answer }) => {
+    const [isClicked, setIsClicked ] = useState(false)
 
     const handleClick = (e:React.MouseEvent<HTMLLIElement>) => {
-        setUserAnswer(e.currentTarget.getAttribute('value') as string)
+        const answerUser = e.currentTarget.getAttribute('value') as string
+        if(userAnswer) return 
+        setUserAnswer(answerUser)
+        setIsClicked(true)
     }
 
     return(
-       <li value={answer} onClick={ handleClick }>
-           <section>
+       <ItemWrapper 
+            correct={ userAnswer && answer === correct_answer ? true : false } 
+            isClicked={isClicked} value={answer} 
+            onClick={ handleClick }
+            active={ userAnswer ? true : false}
+        >
+           <section className='Item-index'>
                <h2>{ letterOptions[index] }</h2>
            </section>
-           <section>
+           <section className='Item-answer'>
                <h4>{ answer }</h4>
            </section>
-           <section>
+           <section className='Item-icon'>
                x
            </section>
-       </li>
+       </ItemWrapper>
     )
 }
 

@@ -4,6 +4,9 @@ import { useFetch } from "./hooks/useFetch";
 import Card from './components/Card/Card'
 import { useEffect, useState } from "react";
 import CardResult from "./components/CardResult/CardResult";
+//styles
+import { AppWrapper } from './styles/AppStyles'
+
 
 const App = () => {
   const { loading,error, data, cleanData } = useFetch()
@@ -12,6 +15,7 @@ const App = () => {
   const [ score, setScore ] = useState(0)
   const [ gameOver, setGameOver ] = useState(false)
 
+ 
 
   const handleNext = () => {
     setUserAnswer('');
@@ -38,8 +42,7 @@ const App = () => {
   },[userAnswer])
 
   return (
-    <section>
-      <h1>Trivia App</h1>
+    <AppWrapper >
       { error && <h1>Something went wrong¡¡</h1>}
       { loading && <h1>Loading...</h1>}
 
@@ -53,9 +56,11 @@ const App = () => {
         /> 
       }
       { 
-        gameOver && <CardResult score={ score } handleReStart={ handleReStart }/>
+        gameOver && 
+          <CardResult score={ score } handleReStart={ handleReStart }/>
       }
-    </section> 
+      <footer className='Footer'>created by HAHS</footer>
+    </AppWrapper> 
   );
 }
 

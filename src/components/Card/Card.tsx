@@ -3,6 +3,8 @@ import React from "react"
 import { QuestionState } from '../../utils/fetchData'
 //components
 import Item from '../Item/Item'
+//styles
+import { Wrapper, WrapperButton } from './CardStyles'
 
 interface Props {
    data:QuestionState[],
@@ -15,9 +17,9 @@ interface Props {
 const Card:React.FC<Props> = ({data, questionNumber, userAnswer, setUserAnswer, handleNext }) =>  {
 
     return(
-        <article>
-            <h2>{ data[questionNumber].question }</h2>
+        <Wrapper>
             <ul>
+            <h2>{ data[questionNumber].question }</h2>
                 {
                     data[questionNumber].answers.map((item, index) => (
                         <Item 
@@ -26,14 +28,19 @@ const Card:React.FC<Props> = ({data, questionNumber, userAnswer, setUserAnswer, 
                             index={index} 
                             userAnswer={userAnswer}
                             setUserAnswer={setUserAnswer}
-                            />
+                            correct_answer={data[questionNumber].correct_answer}
+                        />
                     ))
                 }
 
             </ul>
-            { userAnswer &&<button onClick={ handleNext }>Next</button>}
+            {
+                <WrapperButton visible={userAnswer ? true : false}>
+                    <button onClick={ handleNext }>Next</button>
+                </WrapperButton>
+            }
 
-        </article>
+        </Wrapper>
     )
 }
 
