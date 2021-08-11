@@ -1,20 +1,22 @@
 import { useEffect, useState } from 'react'
 //utils
 import { fetchData } from '../utils/fetchData'
+//interfaces
+import { QuestionState } from '../utils/fetchData'
 
-export interface Data {
-    category: string,
-    correct_answer: string,
-    difficulty: string
-    incorrect_answers: string[]
-    question: string
-    type: string
-}
+// export interface Data {
+//     category: string,
+//     correct_answer: string,
+//     difficulty: string
+//     incorrect_answers: string[]
+//     question: string
+//     type: string
+// }
 
 export const useFetch = () => {
     const [loading, setLoading ] = useState(false)
     const [ error, setError] = useState(false)
-    const [ data, setData ] = useState<Data[]>([])
+    const [ data, setData ] = useState<QuestionState[]>([])
 
     const getData = async() => {
         setLoading(true)
@@ -24,18 +26,24 @@ export const useFetch = () => {
             setLoading(false)
             setError(false)
         } catch (error) {
+            setLoading(false)
             setError(true)
         }
     }
 
+    const cleanData = () => {
+        setData([])
+    }
+
     useEffect(() => {
-        getData()
-    },[])
+        if(data.length === 0) getData()
+    },[data])
 
     return {
         loading,
         error,
-        data
+        data,
+        cleanData
     }
 
 }

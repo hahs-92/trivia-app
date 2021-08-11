@@ -1,36 +1,39 @@
 import React from "react"
 //interface
-import { Data } from '../../hooks/useFetch'
-//utils
-import { shuffleArray } from '../../utils/sortRandom'
+import { QuestionState } from '../../utils/fetchData'
 //components
 import Item from '../Item/Item'
 
 interface Props {
-   data: Data[],
+   data:QuestionState[],
    questionNumber: number,
-   setQuestionNumber: React.Dispatch<React.SetStateAction<number>>
+   userAnswer: string,
+   setUserAnswer: React.Dispatch<React.SetStateAction<string>>
+   handleNext: () => void
 }
 
-const Card:React.FC<Props> = ({data, questionNumber,setQuestionNumber}): JSX.Element =>  {
-    const answers = [...data[questionNumber].incorrect_answers, data[questionNumber].correct_answer]
-    const answers_random: string[] = shuffleArray(answers)
+const Card:React.FC<Props> = ({data, questionNumber, userAnswer, setUserAnswer, handleNext }) =>  {
 
     return(
-        <section>
+        <article>
             <h2>{ data[questionNumber].question }</h2>
             <ul>
                 {
-                    answers_random.map(item => (
-                        <Item key={item} answer={item} />
+                    data[questionNumber].answers.map((item, index) => (
+                        <Item 
+                            key={item} 
+                            answer={item} 
+                            index={index} 
+                            userAnswer={userAnswer}
+                            setUserAnswer={setUserAnswer}
+                            />
                     ))
                 }
 
             </ul>
-            { questionNumber < 9 &&
-                <button onClick={() => setQuestionNumber(prev => prev + 1)}>Next</button>
-            }
-        </section>
+            { userAnswer &&<button onClick={ handleNext }>Next</button>}
+
+        </article>
     )
 }
 
