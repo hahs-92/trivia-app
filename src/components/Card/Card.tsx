@@ -1,46 +1,22 @@
-import React from "react"
-//interface
-import { QuestionState } from '../../utils/fetchData'
-//components
-import Item from '../Item/Item'
+//ASSEST
+import image from '../../assets/images/undraw_adventure_4hum 1.svg'
 //styles
-import { Wrapper, WrapperButton } from './CardStyles'
-
+import {CardWrapper} from './CardStyles'
 interface Props {
-   data:QuestionState[],
-   questionNumber: number,
-   userAnswer: string,
-   setUserAnswer: React.Dispatch<React.SetStateAction<string>>
-   handleNext: () => void
+    chidren?: React.ReactChild  
 }
 
-const Card:React.FC<Props> = ({data, questionNumber, userAnswer, setUserAnswer, handleNext }) =>  {
-
+const Card: React.FC<Props> = ({children}) => {
     return(
-        <Wrapper>
-            <ul>
-            <h2>{ data[questionNumber].question }</h2>
-                {
-                    data[questionNumber].answers.map((item, index) => (
-                        <Item 
-                            key={item} 
-                            answer={item} 
-                            index={index} 
-                            userAnswer={userAnswer}
-                            setUserAnswer={setUserAnswer}
-                            correct_answer={data[questionNumber].correct_answer}
-                        />
-                    ))
-                }
-
-            </ul>
-            {
-                <WrapperButton visible={userAnswer ? true : false}>
-                    <button onClick={ handleNext }>Next</button>
-                </WrapperButton>
-            }
-
-        </Wrapper>
+        <CardWrapper>
+            <section className='Card-BG'></section>
+            <section className='Card-imagen'>
+                <img src={image} alt="undraw-aventure" />
+            </section>
+            <section className='Card-children'>
+                { children }
+            </section>
+        </CardWrapper>
     )
 }
 

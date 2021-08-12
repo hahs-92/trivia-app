@@ -1,7 +1,9 @@
 //hooks
 import { useFetch } from "./hooks/useFetch";
 //components
-import Card from './components/Card/Card'
+import Error from "./components/Error/Error";
+import Loader from "./components/Loader/Loader";
+import CardQuestions from './components/CardQuestions/CardQuestions'
 import { useEffect, useState } from "react";
 import CardResult from "./components/CardResult/CardResult";
 //styles
@@ -43,11 +45,10 @@ const App = () => {
 
   return (
     <AppWrapper >
-      { error && <h1>Something went wrong¡¡</h1>}
-      { loading && <h1>Loading...</h1>}
-
+      { error && <Error />}
+      { loading && <Loader />}
       { data.length > 0 && !gameOver &&
-        <Card 
+        <CardQuestions 
           data={data} 
           questionNumber={questionNumber} 
           setUserAnswer={ setUserAnswer}

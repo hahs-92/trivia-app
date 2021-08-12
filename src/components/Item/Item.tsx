@@ -33,7 +33,7 @@ const Item: React.FC<Props> = ({answer, index,userAnswer, setUserAnswer, correct
                <h2>{ letterOptions[index] }</h2>
            </section>
            <section className='Item-answer'>
-               <h4>{ answer }</h4>
+               <h4 dangerouslySetInnerHTML={{__html: answer }}></h4>
            </section>
            <section className='Item-icon'>
                x

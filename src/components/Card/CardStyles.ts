@@ -2,52 +2,38 @@ import styled from "styled-components";
 //Global variables
 import { GlobalVariables } from '../../styles/GlobalStyles'
 
-//interfae
-type ButtonProps = {
-    visible: boolean
-}
-
-export const Wrapper = styled.article `
+export const CardWrapper = styled.article `
     justify-self: center;
     align-self: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 320px;
-    max-height: 380px;
-    background-color: ${ GlobalVariables.white };
+    display: grid;
+    grid-template: 50px 50px minmax(420px, auto) / minmax(320px, 420px);
     color: ${ GlobalVariables.black };
-    border-radius: 12px;
 
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: space-between;
+    .Card-BG {
+        grid-area: 2 / 1 / 4 / 2;
+        background-color: ${ GlobalVariables.white};
+        border-radius: 12px;
+    }
+
+    .Card-imagen {
+        width: 150px;
+        grid-area: 1 / 1 / 3 / 2;
+        justify-self: self-end;
+        z-index: 1;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .Card-children {
+        grid-area: 3 / 1 / 4 / 2;
+        justify-self: center;
+        align-self: center;
         width: 90%;
-        height: 80%;
+        height: 90%;
     }
 
-` 
-export const WrapperButton = styled.section<ButtonProps> `
-    display: flex;
-    justify-content: flex-end;
-    width: 90%;
-    height: 40px;
 
-    button {
-        width: 90px;
-        border: none;
-        border-radius: 5px;
-        background-color: ${ GlobalVariables.orange };
-        color: ${ GlobalVariables.white };
-        cursor: pointer;
-        visibility: ${({visible: visibility}) => 
-            visibility 
-                ? 'visible'
-                : 'hidden'
-        };
-    }
 `
