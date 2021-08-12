@@ -6,7 +6,7 @@ export const CardWrapper = styled.article `
     justify-self: center;
     align-self: center;
     display: grid;
-    grid-template: 50px 50px minmax(420px, auto) / minmax(320px, 420px);
+    grid-template: 40px 40px minmax(250px, 420px) / minmax(280px, 420px);
     color: ${ GlobalVariables.black };
 
     .Card-BG {
@@ -31,6 +31,9 @@ export const CardWrapper = styled.article `
         grid-area: 3 / 1 / 4 / 2;
         justify-self: center;
         align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 90%;
         height: 90%;
     }

@@ -4,14 +4,6 @@ import { fetchData } from '../utils/fetchData'
 //interfaces
 import { QuestionState } from '../utils/fetchData'
 
-// export interface Data {
-//     category: string,
-//     correct_answer: string,
-//     difficulty: string
-//     incorrect_answers: string[]
-//     question: string
-//     type: string
-// }
 
 export const useFetch = () => {
     const [loading, setLoading ] = useState(false)
@@ -21,18 +13,14 @@ export const useFetch = () => {
     const getData = async() => {
         setLoading(true)
         try {
-            const info = await fetchData()
-            setData(info)
+            // const info = await fetchData()
+            // setData(info)
             setLoading(false)
             setError(false)
         } catch (error) {
             setLoading(false)
             setError(true)
         }
-    }
-
-    const cleanData = () => {
-        setData([])
     }
 
     useEffect(() => {
@@ -42,8 +30,7 @@ export const useFetch = () => {
     return {
         loading,
         error,
-        data,
-        cleanData
+        data
     }
 
 }

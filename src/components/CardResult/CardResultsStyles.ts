@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { GlobalVariables } from '../../styles/GlobalStyles'
 
 export const CardWrapper = styled.article `
-        grid-template: 2fr 2fr 1fr / 1fr;
         display: grid;
+        grid-template: 2fr 2fr 1fr / 1fr;
         height: 100%;
 
         .CardResults-image, .CardResults-button {

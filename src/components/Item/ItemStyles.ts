@@ -12,8 +12,8 @@ type ItemProps = {
 export const ItemWrapper = styled.li<ItemProps> `
     display: flex;
     width: 100%;
-    height: max-content;
-    min-height: 40px;
+    height: 100%;
+    max-height: 40px;
     border-radius: 10px;
     background-color: ${({correct, isClicked}) => 
         correct
@@ -62,6 +62,16 @@ export const ItemWrapper = styled.li<ItemProps> `
         display: flex;
         align-items: center;
         width: 70%;
+    }
+
+    .Item-icon {
+        display: flex;
+        align-items: center;
+        height: 100%;
+
+        img {
+            height: 50%;
+        }
     }
 
 `

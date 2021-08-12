@@ -12,6 +12,7 @@ export const Wrapper = styled.article `
     display: grid;
     grid-template: 1fr 4fr 1fr / 1fr;
     height: 100%;
+    width: 100%;
 
     ul {
         display: flex;

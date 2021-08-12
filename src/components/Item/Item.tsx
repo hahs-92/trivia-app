@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 //styles
 import { ItemWrapper } from './ItemStyles'
+//assets
+import iconCorrect from '../../assets/images/comprobado.svg'
+import iconError from '../../assets/images/cancelar.svg'
 
 interface Props  {
     answer: string,
@@ -36,7 +39,16 @@ const Item: React.FC<Props> = ({answer, index,userAnswer, setUserAnswer, correct
                <h4 dangerouslySetInnerHTML={{__html: answer }}></h4>
            </section>
            <section className='Item-icon'>
-               x
+               {
+                   !userAnswer 
+                    ? null
+                    : answer === correct_answer 
+                    ?  <img src={ iconCorrect } alt="check" />
+                    : answer !== correct_answer && isClicked
+                    ?   <img src={ iconError } alt="wrong" />
+                    : null
+               }
+              
            </section>
        </ItemWrapper>
     )

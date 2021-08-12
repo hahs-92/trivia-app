@@ -1,4 +1,6 @@
 import styled from "styled-components";
+//global variables
+import { GlobalVariables } from '../../styles/GlobalStyles'
 
 export const LoaderWrapper = styled.section `
     .lds-ring {
@@ -14,10 +16,10 @@ export const LoaderWrapper = styled.section `
         width: 64px;
         height: 64px;
         margin: 8px;
-        border: 8px solid #fff;
+        border: 8px solid ${GlobalVariables.blue};
         border-radius: 50%;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #fff transparent transparent transparent;
+        border-color: ${GlobalVariables.blue} transparent transparent transparent;
     }
     .lds-ring div:nth-child(1) {
         animation-delay: -0.45s;
