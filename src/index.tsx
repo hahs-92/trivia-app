@@ -4,11 +4,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 //GlobalStyles
 import GlobalStyles from './styles/GlobalStyles'
+//Redux
+import { Provider } from 'react-redux'
+
+//store
+import { store } from './store/index'
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalStyles />
-    <App />
+    <Provider store={store}>
+      <GlobalStyles />
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

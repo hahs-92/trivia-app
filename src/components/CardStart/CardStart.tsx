@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux'
+import { useState } from 'react'
 //assest
 import imageTrivia from '../../assets/images/quiz.svg'
 //styles
@@ -6,22 +8,26 @@ import { CardStartWrapper } from './CardStartStyles'
 import Card from '../Card/Card'
 import { ButtonAction } from '../Button/Button'
 
+//actions-creator
+import { startGame } from '../../actions/questionsCreators'
 
-interface Props {
-    difficulty: string,
-    setDifficulty: React.Dispatch<React.SetStateAction<string>>,
-    handleStart: () => void
-}
+// interface Props {
+//     difficulty: string,
+//     setDifficulty: React.Dispatch<React.SetStateAction<string>>,
+//     handleStart: () => void
+// }
 
-const CardStart: React.FC<Props> = ({difficulty,setDifficulty, handleStart}) => {
-
+const CardStart = () => {
+    const [ difficulty, setDifficulty ] = useState('')
+    const dispatch = useDispatch()
+    
     const handleClick = (e:React.MouseEvent<HTMLLIElement>) => {
         const d = e.currentTarget.getAttribute('value')
         setDifficulty(d as string)
     }
 
     const handleStartGame = () => {
-        handleStart()
+        dispatch(startGame(difficulty))
     }
     return(
         <Card >

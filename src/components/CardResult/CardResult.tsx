@@ -1,3 +1,4 @@
+import { useSelector, useDispatch } from 'react-redux'
 //components
 import Card from '../Card/Card'
 import Button from '../Button/Button'
@@ -5,12 +6,22 @@ import Button from '../Button/Button'
 import image from '../../assets/images/undraw_winners_ao2o 2.svg'
 //styles
 import { CardWrapper } from './CardResultsStyles'
-interface Props {
-    score: number,
-    handleReStart: () => void
-}
+//actions-creator
+import { ReStartGame } from '../../actions/questionsCreators'
+import { State } from '../../reducers'
 
-const CardResult: React.FC<Props> = ({score, handleReStart}) => {
+// interface Props {
+//     score: number,
+//     handleReStart: () => void
+// }
+
+const CardResult = () => {
+    const dispatch = useDispatch()
+    const score = useSelector((state: State) => state.question.score)
+
+    const handleClick = () => {
+        dispatch(ReStartGame())
+    }
     return(
         <Card>
             <CardWrapper>
@@ -24,7 +35,7 @@ const CardResult: React.FC<Props> = ({score, handleReStart}) => {
                     </h2>
                 </section>
                 <section className='CardResults-button'>
-                    <Button title='Try again' handleClick={ handleReStart }/>
+                    <Button title='Try again' handleClick={ handleClick }/>
                 </section>
             </CardWrapper>
         </Card>
