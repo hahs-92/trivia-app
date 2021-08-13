@@ -4,6 +4,7 @@ import imageTrivia from '../../assets/images/quiz.svg'
 import { CardStartWrapper } from './CardStartStyles'
 //components
 import Card from '../Card/Card'
+import { ButtonAction } from '../Button/Button'
 
 
 interface Props {
@@ -49,8 +50,8 @@ const CardStart: React.FC<Props> = ({difficulty,setDifficulty, handleStart}) => 
                 </section>
                 {
                     difficulty &&
-                        <section className='CardStart-button' onClick={ handleStartGame }>
-                            <button>Start</button>
+                        <section className='CardStart-button'>
+                            <ButtonAction title='Start' handleClick={handleStartGame} />
                         </section>
                 }
             </CardStartWrapper>

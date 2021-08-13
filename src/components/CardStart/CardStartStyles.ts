@@ -4,7 +4,7 @@ import { GlobalVariables } from '../../styles/GlobalStyles'
 
 export const CardStartWrapper = styled.article `
     display: grid;
-    grid-template: 2fr 3fr 1fr / 1fr;
+    grid-template: 120px 2fr 1fr / 1fr;
     width: 100%;
     height: 100%;
 
@@ -60,15 +60,5 @@ export const CardStartWrapper = styled.article `
         display: flex;
         justify-content: center;
         align-items: center;
-
-        button {
-            width: 120px;
-            height: 40px;
-            border: none;
-            background-color: ${GlobalVariables.orange};
-            border-radius: 12px;
-            color: ${ GlobalVariables.white };
-            cursor: pointer;
-        }
     }
 `

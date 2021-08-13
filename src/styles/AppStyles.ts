@@ -10,7 +10,7 @@ export const AppWrapper = styled.section `
     align-items: center;
     justify-items: center;
     grid-template: 1fr 50px / 1fr;
-    min-width: 280px;
+    /* min-width: 280px; */
     min-height: 100vh;
     background-image: url(${BG});
     background-size: cover;

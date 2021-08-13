@@ -77,7 +77,7 @@ const App = () => {
           handleNext={ handleNext }
           error={error}
           loading={loading}
-        /> 
+        />  
       }
       { 
         gameOver && 

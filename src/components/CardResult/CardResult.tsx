@@ -1,5 +1,6 @@
 //components
 import Card from '../Card/Card'
+import Button from '../Button/Button'
 //assest
 import image from '../../assets/images/undraw_winners_ao2o 2.svg'
 //styles
@@ -23,7 +24,7 @@ const CardResult: React.FC<Props> = ({score, handleReStart}) => {
                     </h2>
                 </section>
                 <section className='CardResults-button'>
-                    <button onClick={ handleReStart }>Try again</button>
+                    <Button title='Try again' handleClick={ handleReStart }/>
                 </section>
             </CardWrapper>
         </Card>

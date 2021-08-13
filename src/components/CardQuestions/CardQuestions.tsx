@@ -6,6 +6,7 @@ import Card from '../Card/Card'
 import Item from '../Item/Item'
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
+import { ButtonAction } from '../Button/Button'
 //styles
 import { Wrapper, WrapperButton } from './CardQuestionsStyles'
 
@@ -47,8 +48,12 @@ const CardQuestions:React.FC<Props> = (
 
                     </ul>
                     {
-                        <WrapperButton visible={userAnswer ? true : false}>
-                            <button onClick={ handleNext }>Next</button>
+                        <WrapperButton>
+                            <ButtonAction 
+                                title='Next' 
+                                handleClick={ handleNext } 
+                                isDisable= {!userAnswer ? true : false} 
+                            />
                         </WrapperButton>
                     }
 

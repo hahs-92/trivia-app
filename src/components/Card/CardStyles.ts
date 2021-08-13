@@ -6,8 +6,13 @@ export const CardWrapper = styled.article `
     justify-self: center;
     align-self: center;
     display: grid;
+    width: 95%;
     grid-template: 40px 40px minmax(250px, 420px) / minmax(280px, 420px);
     color: ${ GlobalVariables.black };
+
+    @media(min-width: 445px){
+        width: unset;
+    }
 
     .Card-BG {
         grid-area: 2 / 1 / 4 / 2;

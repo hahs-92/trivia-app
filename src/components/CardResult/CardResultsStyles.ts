@@ -11,17 +11,6 @@ export const CardWrapper = styled.article `
             display: flex;
             justify-content: center;
             align-items: center;
-
-            button {
-                width: 120px;
-                height: 40px;
-                border: 2px solid ${ GlobalVariables.black };
-                border-radius: 12px;
-                color: ${ GlobalVariables.black};
-                background-color: transparent;
-                font-size: 1.6rem;
-                cursor: pointer;
-            }
         }
 
         .hightlight {
