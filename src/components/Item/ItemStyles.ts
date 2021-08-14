@@ -46,6 +46,13 @@ export const ItemWrapper = styled.li<ItemProps> `
                 : GlobalVariables.error
                 
         };
+        border: ${({correct, isClicked}) => 
+            correct
+                ?  `1px solid ${GlobalVariables.success}`
+                : !correct && isClicked
+                ? `1px solid ${GlobalVariables.error}`
+                : `1px solid ${GlobalVariables.orange}`
+        };
         color: white;
       
     } 

@@ -4,6 +4,7 @@ import Card from '../Card/Card'
 import Button from '../Button/Button'
 //assest
 import image from '../../assets/images/undraw_winners_ao2o 2.svg'
+import imageLoser from '../../assets/images/sad.svg'
 //styles
 import { CardWrapper } from './CardResultsStyles'
 //actions-creator
@@ -26,7 +27,11 @@ const CardResult = () => {
         <Card>
             <CardWrapper>
                 <section className='CardResults-image'>
-                    <img src={image} alt="undraw_winners" />
+                    {
+                        score > 0 
+                            ?  <img src={image} alt="undraw_winners" />
+                            :  <img src={imageLoser} alt="undraw_sad" />
+                    } 
                 </section>
                 <section className='CardResults-score'>
                     <h1>Results</h1>
