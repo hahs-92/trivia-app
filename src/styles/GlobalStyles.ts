@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
+//fonts
 import Poppins from '../assets/fonts/poppins-v15-latin/poppins-v15-latin-regular.woff2'
 import Poppins700 from '../assets/fonts/poppins-v15-latin/poppins-v15-latin-700.woff2'
-
 
 //variables globales
 export enum GlobalVariables {

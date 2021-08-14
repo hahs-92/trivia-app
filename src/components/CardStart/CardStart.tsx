@@ -7,15 +7,9 @@ import { CardStartWrapper } from './CardStartStyles'
 //components
 import Card from '../Card/Card'
 import { ButtonAction } from '../Button/Button'
-
 //actions-creator
 import { startGame } from '../../actions/questionsCreators'
 
-// interface Props {
-//     difficulty: string,
-//     setDifficulty: React.Dispatch<React.SetStateAction<string>>,
-//     handleStart: () => void
-// }
 
 const CardStart = () => {
     const [ difficulty, setDifficulty ] = useState('')

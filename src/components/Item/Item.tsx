@@ -12,8 +12,6 @@ import { State } from '../../reducers'
 interface Props  {
     answer: string,
     index: number,
-    // userAnswer: string
-    // setUserAnswer: React.Dispatch<React.SetStateAction<string>>,
     correct_answer: string
 }
 

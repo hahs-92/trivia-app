@@ -11,19 +11,8 @@ import { Wrapper, WrapperButton } from './CardQuestionsStyles'
 import { nextQuestion } from '../../actions/questionsCreators'
 import { State } from '../../reducers'
 
-// interface Props {
-//    data:QuestionState[],
-//    questionNumber: number,
-//    userAnswer: string,
-//    setUserAnswer: React.Dispatch<React.SetStateAction<string>>
-//    handleNext: () => void,
-//    error: boolean,
-//    loading: boolean
-// }
-
 const CardQuestions = ( ) =>  {
     const dispatch = useDispatch()
-
     const data = useSelector((state: State) => state.question.data)
     const error = useSelector((state:State) => state.question.error)
     const loading = useSelector((state:State) => state.question.loading)
@@ -31,9 +20,6 @@ const CardQuestions = ( ) =>  {
     const questionNumber = useSelector((state:State) => state.question.questionNumber)
 
     const handleNext = () => {
-        // (questionNumber < data.length - 1) 
-        // ?  dispatch(nextQuestion())
-        // :  setGameOver(true) 
         dispatch(nextQuestion())
     }
 
@@ -57,7 +43,6 @@ const CardQuestions = ( ) =>  {
                                 />
                             ))
                         }
-
                     </ul>
                     {
                         <WrapperButton>
@@ -68,7 +53,6 @@ const CardQuestions = ( ) =>  {
                             />
                         </WrapperButton>
                     }
-
                 </Wrapper>
             }
         </Card>

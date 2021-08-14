@@ -11,10 +11,6 @@ import { CardWrapper } from './CardResultsStyles'
 import { ReStartGame } from '../../actions/questionsCreators'
 import { State } from '../../reducers'
 
-// interface Props {
-//     score: number,
-//     handleReStart: () => void
-// }
 
 const CardResult = () => {
     const dispatch = useDispatch()

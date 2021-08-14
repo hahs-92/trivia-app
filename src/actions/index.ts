@@ -38,10 +38,6 @@ interface  SetUserAnswerAction {
     payload: string
 }
 
-interface IncrementScore {
-    type: ActionType.INCREMENT_SCORE,
-    payload: number
-}
 
 export type Action = 
     StartGameAction | 
